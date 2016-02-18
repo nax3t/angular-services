@@ -8,11 +8,15 @@
 	<div>
 		<ul ng-repeat="user in users track by $index">
 			<li>
-				{{user.first_name}} {{user.last_name}} <a href="" ng-click="removeUser(user)">Delete</a>
+				{{user.first_name}} {{user.last_name}} <a href="" ng-click="toggleEdit = !toggleEdit">Edit</a> <a href="" ng-click="removeUser(user)">Delete</a>
+			</li>
+			<li ng-show="toggleEdit">
+				<input ng-model="user.first_name" /><input ng-model="user.last_name" /><input type="submit" ng-click="toggleEdit = !toggleEdit" />
 			</li>
 		</ul>
 	</div>
 	<div>
+		<h1>Add User</h1>
 		<form ng-submit="addUser()">
 			<input ng-model="user.first_name" type="text" placeholder="First Name" />
 			<input ng-model="user.last_name" type="text" placeholder="Last Name">
