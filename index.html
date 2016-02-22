@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular Services User Profiles App</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller="usersCtrl">
+<body ng-controller="usersCtrl" ng-cloak>
 	<div>
 		<h1>Add User</h1>
 		<form ng-submit="addUser()">
@@ -17,7 +18,7 @@
 		<!-- track by $index goes at the end when using a filter -->
 		<ul ng-repeat="user in users | orderBy:'id':true track by $index">
 			<li>
-				{{user.first_name}} {{user.last_name}} <a href="" ng-click="toggleEdit = !toggleEdit">Edit</a> <a href="" ng-click="removeUser(user)">Delete</a>
+				<img ng-src="{{user.avatar}}" alt="{{user.first_name + ' ' + user.last_name}}"> {{user.first_name + ' ' + user.last_name}} <a href="" ng-click="toggleEdit = !toggleEdit">Edit</a> <a href="" ng-click="removeUser(user)">Delete</a>
 			</li>
 			<li ng-show="toggleEdit">
 				<input ng-model="user.first_name" /><input ng-model="user.last_name" /><input type="submit" ng-click="toggleEdit = !toggleEdit" />

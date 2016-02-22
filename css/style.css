@@ -1,0 +1,14 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+img {
+	border-radius: 50%;
+	width: 50px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+li {
+	list-style-type: none;
+}

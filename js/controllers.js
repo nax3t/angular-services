@@ -2,7 +2,7 @@ app.controller('usersCtrl', ['$scope', 'userService', function($scope, userServi
 	$scope.users = userService.getUsers();
 	$scope.user = {};
 	$scope.toggleEdit = false;
-	
+
 	$scope.addUser = function() {
 		userService.addUser($scope.user);
 		$scope.user = {};
