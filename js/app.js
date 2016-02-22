@@ -1,1 +1,1 @@
-var app = angular.module('userProfiles', []);
+var app = angular.module('userApp', []);

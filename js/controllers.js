@@ -1,11 +1,8 @@
-app.controller('userCtrl', function($scope, userService) {
+app.controller('usersCtrl', ['$scope', 'userService', function($scope, userService) {
 	$scope.users = userService.getUsers();
 	$scope.user = {};
 	$scope.toggleEdit = false;
-	//example of deep watching
-	// $scope.$watch('users', function() {
-	// 	console.log('changed!');
-	// }, true);
+	
 	$scope.addUser = function() {
 		userService.addUser($scope.user);
 		$scope.user = {};
@@ -13,4 +10,19 @@ app.controller('userCtrl', function($scope, userService) {
 	$scope.removeUser = function(user) {
 		userService.removeUser(user);
 	};
-});
+	
+	// // example of deep watching
+	// $scope.$watch('users', function(newValue, oldValue) {
+	// 	if (newValue !== oldValue) {
+	// 		console.log('changed!');
+	// 	}
+	// }, true);
+	// // example of shallow watching
+	// $scope.foo = 'foo';
+	// $scope.$watch('foo', function(newValue, oldValue) {
+	// 	if (newValue !== oldValue) {
+	// 		// execute when foo changes
+	// 		console.log('changed!');			
+	// 	}
+	// });
+}]);
